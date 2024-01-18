@@ -1,5 +1,7 @@
 from django.db import models
 
+from users.models import NULLABLE
+
 
 class Seller(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название')
@@ -9,7 +11,7 @@ class Seller(models.Model):
     street = models.CharField(max_length=100, verbose_name='Улица')
     house = models.CharField(max_length=100, verbose_name='Дом')
     product = models.ForeignKey('Product', on_delete=models.CASCADE)
-    supplier = models.ForeignKey('Seller', on_delete=models.CASCADE, verbose_name='Поставщик')
+    supplier = models.ForeignKey('Seller', on_delete=models.CASCADE, verbose_name='Поставщик', **NULLABLE)
     debt = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Задолженность')
     create_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата и время создания')
 
