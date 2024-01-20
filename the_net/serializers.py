@@ -6,5 +6,5 @@ from the_net.models import Seller
 class SupplierSerializer(serializers.ModelSerializer):
     class Meta:
         model = Seller
-        fields = ('title', 'email', 'country', 'city', 'street', 'house', 'product', 'supplier', 'debt')
+        fields = ('level', 'title', 'email', 'country', 'city', 'street', 'house')
         read_only_fields = ('debt',)
