@@ -6,7 +6,7 @@ from the_net.models import Seller, Product
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('id', 'title', 'model', 'release_date')
+        fields = ('title', 'model', 'release_date', 'seller')
 
 
 class SupplierSerializer(serializers.ModelSerializer):
@@ -14,4 +14,4 @@ class SupplierSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Seller
-        fields = ('products', 'title', 'supplier', 'email', 'country', 'city', 'street', 'house', 'debt')
+        fields = ('title', 'supplier', 'email', 'country', 'city', 'street', 'house', 'debt', 'products')
