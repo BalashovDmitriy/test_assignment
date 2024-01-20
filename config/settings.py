@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'the_net',
     'drf_yasg',
     'rest_framework_simplejwt',
+    'django_filters'
 ]
 
 MIDDLEWARE = [

@@ -13,6 +13,7 @@ class Seller(models.Model):
     street = models.CharField(max_length=100, verbose_name='Улица')
     house = models.CharField(max_length=100, verbose_name='Дом')
     debt = models.PositiveIntegerField(default=0, verbose_name='Задолженность перед поставщиком')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
 
     def __str__(self):
         return f'{self.title}'
@@ -35,8 +36,7 @@ class Product(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название')
     model = models.CharField(max_length=100, verbose_name='Модель')
     release_date = models.DateField(verbose_name='Дата выхода продукта на рынок')
-    seller = models.ForeignKey(Seller, on_delete=models.CASCADE, verbose_name='Поставщик', **NULLABLE,
-                               related_name='products')
+    seller = models.ForeignKey(Seller, on_delete=models.CASCADE, verbose_name='Поставщик', related_name='products')
 
     def __str__(self):
         return f'{self.title} - {self.seller} - {self.release_date}'
